@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Services | Search Engine Optimization | Growfic</title>
+        <link rel="icon" type="image/x-icon" href="growficlogo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #f26522;
+            --accent: #00d4a7;
+            --white: #ffffff;
+            --light-bg: #f0f4f8;
+            --text-dark: #0a1628;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 8px 5%;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left { display: flex; gap: 20px; align-items: center; }
+        .top-bar-left span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-right { display: flex; gap: 20px; align-items: center; }
+        .top-bar a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
+        .top-bar a:hover { color: var(--secondary); }
+        .top-bar .divider { color: rgba(255,255,255,0.3); }
+
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 40px; width: auto; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i { font-size: 0.72rem; transition: transform 0.3s; }
+        .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 14px;
+            padding: 14px;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-size: 0.88rem;
+        }
+
+        .dropdown-menu a:hover { background: var(--light-bg); color: var(--secondary); }
+
+        .dropdown-menu .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .icon-seo { background: #e8f5e9; color: #2e7d32; }
+        .icon-ppc { background: #fff3e0; color: #ef6c00; }
+        .icon-local { background: #e3f2fd; color: #1565c0; }
+        .icon-content { background: #fce4ec; color: #c62828; }
+        .icon-video { background: #f3e5f5; color: #6a1b9a; }
+        .icon-smm { background: #e0f7fa; color: #00838f; }
+
+        .dropdown-menu .label { font-weight: 600; display: block; color: var(--text-dark); font-size: 0.85rem; }
+        .dropdown-menu .desc { font-size: 0.74rem; color: var(--text-light); font-weight: 400; }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #d9551a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(242, 101, 34, 0.35);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .service-hero {
+            padding: 80px 5% 70px;
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .service-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-size: 0.88rem;
+        }
+
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: var(--secondary); }
+        .breadcrumb span { color: var(--secondary); font-weight: 600; }
+
+        .service-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .service-hero h1 span { color: var(--secondary); }
+
+        .service-hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 101, 34, 0.1);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .section-header p { color: var(--text-light); font-size: 1.02rem; }
+
+        .seo-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .seo-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .seo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--accent) 100%);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .seo-card:hover::before { transform: scaleY(1); }
+        .seo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+
+        .seo-card .icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .seo-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .seo-card p { color: var(--text-light); font-size: 0.92rem; line-height: 1.7; }
+        .seo-card ul { list-style: none; margin-top: 16px; }
+        .seo-card ul li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--text-light); font-size: 0.88rem; }
+        .seo-card ul li i { color: var(--accent); font-size: 0.8rem; }
+
+        .process {
+            background: var(--light-bg);
+        }
+
+        .process-steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .process-step {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin: 0 auto 18px;
+        }
+
+        .process-step h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .process-step p { color: var(--text-light); font-size: 0.88rem; line-height: 1.6; }
+
+        .cta-section {
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%);
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .cta-section h2 { font-size: 2.2rem; font-weight: 800; color: var(--white); margin-bottom: 14px; }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.02rem; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 5% 32px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand .logo { margin-bottom: 14px; }
+        .footer-brand .logo img { height: 36px; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px; }
+        .footer-brand .tagline { color: var(--secondary); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .social { display: flex; gap: 12px; }
+        .social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .social a:hover { background: var(--secondary); transform: translateY(-3px); }
+
+        .footer-column h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+        .footer-column a:hover { color: var(--secondary); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 112px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 112px);
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 5%;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 6px; }
+        .mobile-menu a { display: block; padding: 14px 0; text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); }
+        .mobile-services { padding-left: 16px; }
+        .mobile-services a { font-size: 0.9rem; padding: 10px 0; color: var(--text-light); }
+
+        @media (max-width: 1024px) {
+            .service-hero h1 { font-size: 2.3rem; }
+            .seo-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu { top: 72px; height: calc(100vh - 72px); }
+            .service-hero { padding: 50px 5% 50px; }
+            .service-hero h1 { font-size: 1.9rem; }
+            .process-steps { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 36px; }
+            .section { padding: 60px 5%; }
+            .section-header h2 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+  <!--top bar-->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Bar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Top bar: hidden on mobile, visible on laptop/desktop only */
+    .top-bar {
+      display: none; /* hidden by default (mobile-first) */
+      background-color: #0f1b2d;
+      width: 100%;
+      height: 40px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    /* Show only on large screens (≥1024px) */
+    @media (min-width: 1024px) {
+      .top-bar {
+        display: flex;
+      }
+    }
+
+    /* Left section — tagline */
+    .top-bar__left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .top-bar__left .segment {
+      display: flex;
+      align-items: center;
+    }
+
+    .top-bar__left .segment + .segment::before {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.25);
+      margin: 0 16px;
+    }
+
+    .top-bar__left .word-more {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .top-bar__left .word-leads  { color: #f97316; font-weight: 700; }
+    .top-bar__left .word-sales  { color: #f97316; font-weight: 700; }
+    .top-bar__left .word-growth { color: #f97316; font-weight: 700; }
+
+    /* Right section — contact + icons */
+    .top-bar__right {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .top-bar__right .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #c8d6e5;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .top-bar__right .contact-item:hover {
+      color: #ffffff;
+    }
+
+    .top-bar__right .contact-item svg {
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .top-bar__right .divider {
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 18px;
+    }
+
+    .top-bar__right .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .top-bar__right .social-icons a {
+      color: #c8d6e5;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .top-bar__right .social-icons a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+
+    <!-- Left: tagline -->
+    <div class="top-bar__left">
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-leads">Leads</span>
+      </div>
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-sales">Sales</span>
+      </div>
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-growth">Growth</span>
+      </div>
+    </div>
+
+    <!-- Right: email, phone, social -->
+    <div class="top-bar__right">
+
+      <!-- Email -->
+      <a href="mailto:grow@growfic.in" class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+        grow@growfic.in
+      </a>
+
+      <div class="divider"></div>
+
+      <!-- Phone -->
+      <a href="tel:+918778820899" class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +91 87788 20899
+      </a>
+
+      <div class="divider"></div>
+
+      <!-- Social icons -->
+      <div class="social-icons">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/growfic.in/" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/Growfic.in/" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+         <div class="logo"><img src="growficlogo.png" alt="Growficlogo"></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <span class="dropdown-toggle">
+                        <a href="#services">Services</a>
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <ul class="dropdown-menu">
+                        <li><a href="seo.html"><div><span class="label">Search Engine Optimization</span><span class="desc">Rank higher on Google</span></div></a></li>
+                        <li><a href="ppc.html"><div><span class="label">Google & Meta Ads</span><span class="desc">Paid advertising campaigns</span></div></a></li>
+                        <li><a href="local.html"><div><span class="label">Google Business Profile</span><span class="desc">Local search visibility</span></div></a></li>
+                        <li><a href="content.html"><div><span class="label">Content Strategy</span><span class="desc">Engaging content creation</span></div></a></li>
+                        <li><a href="video.html"><div><span class="label">Video Production</span><span class="desc">Professional video editing</span></div></a></li>
+                        <li><a href="smm.html"><div><span class="label">Social Media Management</span><span class="desc">Grow your social presence</span></div></a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="clients.html">Client & strategy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary">Free Audit</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li class="mobile-services"><a href="seo.html"> Search Engine Optimization</a></li>
+            <li class="mobile-services"><a href="ppc.html"> Google & Meta Ads</a></li>
+            <li class="mobile-services"><a href="local.html"> Google Business Profile</a></li>
+            <li class="mobile-services"><a href="content.html"> Content Strategy</a></li>
+            <li class="mobile-services"><a href="video.html"> Video Production</a></li>
+            <li class="mobile-services"><a href="smm.html"> Social Media Management</a></li>
+       
+            <li><a href="clients.html">Client & strategy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <!DOCTYPE html>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #ffffff; color: #0a1f44; }
+
+    /* ── HERO ── */
+    .hero { background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%); padding: 80px 5% 70px; text-align: left; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0; }
+    .hero::after  { display: none; }
+
+    /* ── Two-column hero grid ─────────────────────────── */
+    .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 52px;
+    }
+
+    /* ── SEO Visual ────────────────────────────────────── */
+    .seo-hero-visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 420px;
+    }
+
+    .shv-glow {
+        position: absolute;
+        width: 360px; height: 360px;
+        background: radial-gradient(circle, rgba(249,115,22,0.14) 0%, rgba(26,115,232,0.12) 50%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    /* Browser / SERP mockup */
+    .shv-browser {
+        position: relative;
+        z-index: 2;
+        width: 270px;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 28px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .shv-browser-bar {
+        background: #f1f3f6;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid #e2e5ea;
+    }
+    .shv-dots { display: flex; gap: 5px; }
+    .shv-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .shv-dot.r { background: #ff5f57; }
+    .shv-dot.y { background: #febc2e; }
+    .shv-dot.g { background: #28c840; }
+    .shv-url-bar {
+        flex: 1;
+        background: #fff;
+        border-radius: 5px;
+        padding: 4px 10px;
+        font-size: 0.62rem;
+        color: #5f6368;
+        font-family: monospace;
+        border: 1px solid #dadde1;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .shv-url-bar i { color: #1a73e8; font-size: 0.65rem; }
+
+    /* SERP results */
+    .shv-serp { padding: 14px 14px 16px; }
+    .shv-serp-label {
+        font-size: 0.58rem;
+        color: #5f6368;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+    }
+
+    .shv-result {
+        padding: 9px 10px;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        border: 1px solid #e8eaf0;
+        transition: background 0.2s;
+    }
+    .shv-result.top-1 { border-color: #1a73e8; background: #f0f6ff; }
+
+    .shv-result-pos {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 3px;
+    }
+    .shv-rank {
+        font-size: 0.58rem;
+        font-weight: 800;
+        width: 16px; height: 16px;
+        border-radius: 4px;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        color: #fff;
+    }
+    .shv-rank.r1 { background: #1a73e8; }
+    .shv-rank.r2 { background: #5f6368; }
+    .shv-rank.r3 { background: #5f6368; }
+
+    .shv-result-url { font-size: 0.58rem; color: #0d652d; font-family: Arial, sans-serif; }
+    .shv-result-title { font-size: 0.72rem; font-weight: 700; color: #1a0dab; line-height: 1.3; }
+    .shv-result-desc {
+        font-size: 0.6rem; color: #4d5156;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Arrow label */
+    .shv-your-site {
+        position: absolute;
+        top: 28%;
+        left: -22%;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #f97316;
+        white-space: nowrap;
+    }
+    .shv-your-site::after {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: #f97316;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    /* Floating stat cards */
+    .shv-card {
+        position: absolute;
+        z-index: 3;
+        background: #fff;
+        border-radius: 14px;
+        padding: 11px 15px;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+    }
+    .shv-card-icon {
+        width: 34px; height: 34px;
+        border-radius: 9px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        color: #fff;
+    }
+    .shv-card .shv-c-num { font-weight: 800; font-size: 0.9rem; color: #0a1628; line-height: 1.2; }
+    .shv-card .shv-c-lbl { font-size: 0.64rem; color: #64748b; font-weight: 600; }
+
+    .shv-card-traffic {
+        top: 5%;
+        left: -8%;
+        animation: shvFloat 4s ease-in-out infinite;
+    }
+    .shv-card-traffic .shv-card-icon { background: linear-gradient(135deg, #1a73e8, #6baef7); }
+
+    .shv-card-rank {
+        bottom: 10%;
+        right: -10%;
+        animation: shvFloat 4s ease-in-out infinite 1.5s;
+    }
+    .shv-card-rank .shv-card-icon { background: linear-gradient(135deg, #f97316, #fbb97b); }
+
+    .shv-card-kw {
+        top: 46%;
+        right: -12%;
+        animation: shvFloat 4s ease-in-out infinite 2.6s;
+    }
+    .shv-card-kw .shv-card-icon { background: linear-gradient(135deg, #22c55e, #4ade80); }
+
+    @keyframes shvFloat {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(-10px); }
+    }
+
+    /* Responsive: hero grid */
+    @media (max-width: 1024px) {
+        .hero-inner { grid-template-columns: 1fr; text-align: center; }
+        .seo-hero-visual { order: -1; min-height: 320px; margin-bottom: 8px; }
+        .hero p { margin-left: auto; margin-right: auto; }
+        .hero div[style*="justify-content:center"] { justify-content: center !important; }
+    }
+    @media (max-width: 768px) {
+        .hero { padding: 60px 5% 50px; }
+        .seo-hero-visual { min-height: 270px; }
+        .shv-browser { width: 210px; }
+        .shv-card { padding: 8px 11px; }
+        .shv-card-icon { width: 28px; height: 28px; font-size: 0.78rem; }
+        .shv-card .shv-c-num { font-size: 0.8rem; }
+        .shv-card .shv-c-lbl { font-size: 0.6rem; }
+        .shv-card-traffic { left: 0; top: 2%; }
+        .shv-card-rank { right: 0; bottom: 6%; }
+        .shv-card-kw { display: none; }
+        .shv-your-site { display: none; }
+    }
+    @media (max-width: 480px) {
+        .shv-browser { width: 180px; }
+        .seo-hero-visual { min-height: 230px; }
+    }
+
+    .section { padding: 90px 24px; }
+    .inner   { max-width: 1100px; margin: 0 auto; }
+
+    .badge { display: inline-block; background: #e8f0fe; color: #1a73e8; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; margin-bottom: 16px; }
+    .badge-orange { background: rgba(249,115,22,0.12); color: #f97316; }
+
+    .sec-title { font-size: clamp(24px, 3.2vw, 42px); font-weight: 800; color: #0a1f44; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .sec-sub   { color: #6b7a99; font-size: 15px; line-height: 1.75; max-width: 560px; margin: 0 auto; }
+
+    .card { background: #fff; border: 1.5px solid #e4e9f5; border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(10,31,68,0.10); }
+
+    .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; }
+    .pill-blue   { background: #f0f4ff; color: #1a73e8; }
+    .pill-orange { background: #fff5f0; color: #f97316; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+    .icon-box { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
+    .icon-navy    { background: #eef1f8; }
+    .icon-blue    { background: #e8f0fe; }
+    .icon-orange  { background: #fff5f0; }
+
+    .divider { border: none; border-top: 1px solid #e4e9f5; margin: 0; }
+
+    .stat-card { background: linear-gradient(135deg,#0a1f44,#0d2a5e); border-radius: 20px; padding: 32px 24px; text-align: center; }
+
+    .step-num { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+
+    .faq-item { border: 1.5px solid #e4e9f5; border-radius: 16px; padding: 24px 28px; margin-bottom: 14px; }
+
+    .cta-banner { background: linear-gradient(135deg,#0a1f44 0%,#1a73e8 100%); border-radius: 28px; padding: 64px 40px; text-align: center; }
+
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: repeat(2,1fr); }
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 560px) {
+      .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+      .section { padding: 60px 16px; }
+      .hero { padding: 80px 16px 60px; }
+      .cta-banner { padding: 48px 24px; }
+    }
+  </style>
+
+<body>
+  <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+
+<!-- ═══════════════════════════════════════════
+     1. HERO SECTION
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Left: existing content — unchanged -->
+    <div style="position:relative; z-index:1;">
+      <span class="badge badge-orange" style="margin-bottom:20px;">Search Engine Optimization</span>
+      <h1 style="font-size:clamp(30px,5vw,58px); font-weight:800; color:#ffffff; line-height:1.1; letter-spacing:-1px; margin-bottom:20px;">
+        Rank Higher. Get Found.<br/>
+        <span style="color:#f97316;">Grow Faster.</span>
+      </h1>
+      <p style="color:#bdd4f8; font-size:16px; line-height:1.8; max-width:560px; margin:0 0 36px 0;">
+        SEO isn't just about ranking on Google — it's about putting your brand in front of the right people at the exact moment they're searching for what you offer.
+      </p>
+   
+
+      <!-- Mini stats -->
+      <div style="display:flex; gap:32px; flex-wrap:wrap; margin-top:48px; padding-top:36px; border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="text-align:left;">
+          <p style="color:#f97316; font-size:26px; font-weight:800; margin:0;">3x</p>
+          <p style="color:#93a8c9; font-size:13px; margin:4px 0 0;">Avg. Traffic Increase</p>
+        </div>
+        <div style="text-align:left;">
+          <p style="color:#f97316; font-size:26px; font-weight:800; margin:0;">Top 3</p>
+          <p style="color:#93a8c9; font-size:13px; margin:4px 0 0;">Google Rankings</p>
+        </div>
+        <div style="text-align:left;">
+          <p style="color:#f97316; font-size:26px; font-weight:800; margin:0;">50+</p>
+          <p style="color:#93a8c9; font-size:13px; margin:4px 0 0;">Keywords Ranked</p>
+        </div>
+        <div style="text-align:left;">
+          <p style="color:#f97316; font-size:26px; font-weight:800; margin:0;">6 Mo</p>
+          <p style="color:#93a8c9; font-size:13px; margin:4px 0 0;">Avg. Results Timeline</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: SEO visual — Google SERP mockup -->
+    <div class="seo-hero-visual">
+      <div class="shv-glow"></div>
+
+      <!-- "Your Site" pointer label -->
+      <div class="shv-your-site">Your site here</div>
+
+      <!-- Browser + SERP card -->
+      <div class="shv-browser">
+        <div class="shv-browser-bar">
+          <div class="shv-dots">
+            <div class="shv-dot r"></div>
+            <div class="shv-dot y"></div>
+            <div class="shv-dot g"></div>
+          </div>
+          <div class="shv-url-bar">
+            <i class="fas fa-lock"></i> google.com/search?q=best+seo+agency
+          </div>
+        </div>
+        <div class="shv-serp">
+          <div class="shv-serp-label">About 2,14,00,000 results (0.42 seconds)</div>
+
+          <div class="shv-result top-1">
+            <div class="shv-result-pos">
+              <div class="shv-rank r1">#1</div>
+              <div class="shv-result-url">growfic.in › seo-services</div>
+            </div>
+            <div class="shv-result-title">Best SEO Agency | Rank #1 on Google — Growfic</div>
+            <div class="shv-result-desc">We help businesses rank higher, get found faster, and grow organically without paying for every click...</div>
+          </div>
+
+          <div class="shv-result">
+            <div class="shv-result-pos">
+              <div class="shv-rank r2">#2</div>
+              <div class="shv-result-url">competitor-a.com › services</div>
+            </div>
+            <div class="shv-result-title">SEO Services — Competitor A</div>
+            <div class="shv-result-desc">Generic SEO services with slow results and no custom strategy...</div>
+          </div>
+
+          <div class="shv-result">
+            <div class="shv-result-pos">
+              <div class="shv-rank r3">#3</div>
+              <div class="shv-result-url">competitor-b.com › seo</div>
+            </div>
+            <div class="shv-result-title">SEO Company — Competitor B</div>
+            <div class="shv-result-desc">One-size-fits-all packages, limited reporting and transparency...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating stat cards -->
+      <div class="shv-card shv-card-traffic">
+        <div class="shv-card-icon"><i class="fas fa-arrow-trend-up"></i></div>
+        <div>
+          <div class="shv-c-num">+320% Traffic</div>
+          <div class="shv-c-lbl">Organic Visitors</div>
+        </div>
+      </div>
+
+      <div class="shv-card shv-card-rank">
+        <div class="shv-card-icon"><i class="fas fa-trophy"></i></div>
+        <div>
+          <div class="shv-c-num">Top 3 Rank</div>
+          <div class="shv-c-lbl">Google Search Results</div>
+        </div>
+      </div>
+
+      <div class="shv-card shv-card-kw">
+        <div class="shv-card-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <div>
+          <div class="shv-c-num">50+ Keywords</div>
+          <div class="shv-c-lbl">Page 1 Rankings</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     2. WHAT IS SEO
+════════════════════════════════════════════ -->
+<section class="section" style="background:#f8faff;">
+  <div class="inner">
+    <div style="display:flex; align-items:center; gap:60px; flex-wrap:wrap;">
+
+      <div style="flex:1 1 340px;">
+        <span class="badge">What Is SEO?</span>
+        <h2 class="sec-title" style="text-align:left;">Why SEO Is the <span style="color:#1a73e8;">Best Long-Term</span> Marketing Investment</h2>
+        <p style="color:#6b7a99; font-size:15px; line-height:1.8; margin-bottom:24px;">
+          Search Engine Optimisation (SEO) is the process of improving your website so it ranks higher in Google search results — organically, without paying for every click. Unlike paid ads, SEO compounds over time, delivering free, high-intent traffic that converts.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:flex-start; gap:14px;">
+            <span style="background:#f97316; color:#fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; margin-top:2px;">✓</span>
+            <p style="color:#0a1f44; font-size:14px; line-height:1.65;"><strong>Free organic traffic</strong> — no cost per click, ever.</p>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px;">
+            <span style="background:#f97316; color:#fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; margin-top:2px;">✓</span>
+            <p style="color:#0a1f44; font-size:14px; line-height:1.65;"><strong>High buyer intent</strong> — users searching are ready to act.</p>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px;">
+            <span style="background:#f97316; color:#fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; margin-top:2px;">✓</span>
+            <p style="color:#0a1f44; font-size:14px; line-height:1.65;"><strong>Builds brand authority</strong> — top rankings = instant credibility.</p>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px;">
+            <span style="background:#f97316; color:#fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; margin-top:2px;">✓</span>
+            <p style="color:#0a1f44; font-size:14px; line-height:1.65;"><strong>Compounds over time</strong> — results grow month after month.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px; display:flex; flex-direction:column; gap:16px;">
+        <div style="background:linear-gradient(135deg,#0a1f44,#0d2a5e); border-radius:20px; padding:28px 24px;">
+          <p style="color:#93a8c9; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">Did You Know?</p>
+          <p style="color:#ffffff; font-size:15px; font-weight:700; line-height:1.6; margin-bottom:0;">
+            <span style="color:#f97316; font-size:28px; font-weight:800; display:block; margin-bottom:4px;">68%</span>
+            of all online experiences begin with a search engine query.
+          </p>
+        </div>
+        <div style="background:linear-gradient(135deg,#1a73e8,#1558b0); border-radius:20px; padding:28px 24px;">
+          <p style="color:#bdd4f8; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">Top Ranking Fact</p>
+          <p style="color:#ffffff; font-size:15px; font-weight:700; line-height:1.6; margin-bottom:0;">
+            <span style="color:#f97316; font-size:28px; font-weight:800; display:block; margin-bottom:4px;">75%</span>
+            of users never scroll past the first page of Google results.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     3. SEO SERVICES (6 cards 3+3)
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="badge">Our SEO Services</span>
+      <h2 class="sec-title">Everything You Need to <span style="color:#1a73e8;">Dominate Search</span></h2>
+      <p class="sec-sub">A full-suite of SEO solutions covering every ranking factor Google cares about.</p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#0a1f44,#1a3a7a); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">Keyword Research</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">We identify high-volume, low-competition keywords your ideal customers are actively searching for.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-blue">Long-tail Keywords</span>
+          <span class="pill pill-blue">Search Intent</span>
+          <span class="pill pill-blue">Competitor Gaps</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#1a73e8,#60a5fa); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">On-Page SEO</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">Optimising every page element — titles, meta descriptions, headings, content, and internal links — to signal relevance to Google.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-blue">Meta Tags</span>
+          <span class="pill pill-blue">Schema Markup</span>
+          <span class="pill pill-blue">Content Optimisation</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#0a1f44,#1a3a7a); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">Technical SEO</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">We fix the backend issues that silently kill your rankings — site speed, crawlability, mobile-friendliness, and Core Web Vitals.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-orange">Site Speed</span>
+          <span class="pill pill-orange">Core Web Vitals</span>
+          <span class="pill pill-orange">XML Sitemap</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#1a73e8,#60a5fa); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">SEO Content Writing</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">Expert-written blogs, landing pages, and pillar content designed to rank, engage, and convert your target audience.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-blue">Blog Articles</span>
+          <span class="pill pill-blue">Pillar Pages</span>
+          <span class="pill pill-blue">Topic Clusters</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#0a1f44,#1a3a7a); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">Link Building</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">We earn high-authority backlinks from trusted websites that signal to Google your site deserves to rank at the top.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-orange">Guest Posting</span>
+          <span class="pill pill-orange">DA 50+ Links</span>
+          <span class="pill pill-orange">Digital PR</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#1a73e8,#60a5fa); border-radius:20px 20px 0 0;"></div>
+        <div ></div>
+        <h3 style="font-size:17px; font-weight:800; color:#0a1f44; margin-bottom:10px;">Local SEO</h3>
+        <p style="color:#6b7a99; font-size:14px; line-height:1.7; margin-bottom:16px;">Dominate "near me" searches and Google Maps listings to drive foot traffic and local leads directly to your business.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span class="pill pill-blue">Google Business Profile</span>
+          <span class="pill pill-blue">Local Citations</span>
+          <span class="pill pill-blue">Reviews</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     4. HOW SEO WORKS — PROCESS
+════════════════════════════════════════════ -->
+<section class="section" style="background:#f8faff;">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="badge">How It Works</span>
+      <h2 class="sec-title">Our <span style="color:#1a73e8;">SEO Process</span> — Step by Step</h2>
+      <p class="sec-sub">A transparent, repeatable process that delivers consistent ranking improvements every month.</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+
+      <!-- Step rows -->
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#0a1f44; color:#fff;">01</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">Website & SEO Audit</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">Full technical and content audit to identify what's holding your site back from ranking.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-blue">Crawl Analysis</span>
+          <span class="pill pill-blue">Penalty Check</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Week 1</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#1a73e8; color:#fff;">02</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">Keyword Strategy & Mapping</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">Research and map target keywords to the right pages based on search intent and competition.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-orange">Intent Mapping</span>
+          <span class="pill pill-orange">Volume Analysis</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Week 1–2</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#0a1f44; color:#fff;">03</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">On-Page & Technical Fixes</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">Implement all on-page optimisations and resolve technical issues blocking crawl and index.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-blue">Meta Optimisation</span>
+          <span class="pill pill-blue">Speed Fix</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Week 2–3</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#1a73e8; color:#fff;">04</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">Content Creation & Publishing</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">SEO-optimised blog posts, landing pages, and supporting content published on a consistent schedule.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-orange">Blog Posts</span>
+          <span class="pill pill-orange">Pillar Pages</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Month 1+</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#0a1f44; color:#fff;">05</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">Link Building & Authority Growth</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">Monthly high-quality backlink acquisition to increase domain authority and outrank competitors.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-blue">Guest Posts</span>
+          <span class="pill pill-blue">Digital PR</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Ongoing</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:20px; background:#fff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 28px; flex-wrap:wrap;">
+        <div class="step-num" style="background:#1a73e8; color:#fff;">06</div>
+        <div style="flex:1 1 200px;">
+          <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:6px;">Reporting & Rank Tracking</h4>
+          <p style="color:#6b7a99; font-size:13px; line-height:1.7; margin:0;">Monthly SEO reports showing keyword movements, traffic growth, and ROI with clear next steps.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="pill pill-orange">Rank Tracker</span>
+          <span class="pill pill-orange">GA4 Reports</span>
+        </div>
+        <span style="background:#fff5f0; color:#f97316; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Monthly</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     5. KEY RANKING FACTORS
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="badge">Ranking Factors</span>
+      <h2 class="sec-title">What Google Actually <span style="color:#1a73e8;">Looks For</span></h2>
+      <p class="sec-sub">We optimise every signal Google's algorithm uses to rank websites in 2025.</p>
+    </div>
+
+    <div class="grid-4">
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Mobile-First</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">Google indexes mobile version first. Your site must be fast and flawless on every device.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Page Speed</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">Sites that load under 2 seconds rank significantly higher and convert 3x better.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Quality Content</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">E-E-A-T content that satisfies search intent and demonstrates real expertise wins rankings.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid#e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Backlink Authority</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">Links from high-DA trusted sites are still among the top 3 ranking signals in 2025.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Search Intent</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">Matching the exact intent behind every search query — informational, commercial, or transactional.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Core Web Vitals</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">LCP, FID, and CLS scores directly impact your ranking — we ensure you pass Google's thresholds.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Domain Authority</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">A strong, aged domain with clean history and consistent publishing gives you a lasting edge.</p>
+      </div>
+
+      <div style="background:#f8faff; border:1.5px solid #e4e9f5; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="font-size:32px; margin-bottom:12px;"></div>
+        <h4 style="font-size:15px; font-weight:800; color:#0a1f44; margin-bottom:8px;">User Signals</h4>
+        <p style="color:#6b7a99; font-size:13px; line-height:1.65;">Click-through rate, time-on-page, and bounce rate tell Google whether users love your content.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     6. RESULTS / STATS
+════════════════════════════════════════════ -->
+<section class="section" style="background:#0a1f44;">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="badge badge-orange">Real Results</span>
+      <h2 class="sec-title" style="color:#ffffff;">Numbers That Speak <span style="color:#f97316;">For Themselves</span></h2>
+      <p class="sec-sub" style="color:#93a8c9;">Across 500+ SEO campaigns, here's what our clients experience on average.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="stat-card">
+        <p style="color:#f97316; font-size:42px; font-weight:800; margin:0 0 6px 0;">312%</p>
+        <p style="color:#ffffff; font-size:15px; font-weight:700; margin:0 0 6px 0;">Avg. Organic Traffic Growth</p>
+        <p style="color:#93a8c9; font-size:13px; margin:0;">Within the first 6 months of campaign launch</p>
+      </div>
+      <div class="stat-card">
+        <p style="color:#f97316; font-size:42px; font-weight:800; margin:0 0 6px 0;">#1–3</p>
+        <p style="color:#ffffff; font-size:15px; font-weight:700; margin:0 0 6px 0;">Google Rankings Achieved</p>
+        <p style="color:#93a8c9; font-size:13px; margin:0;">For primary target keywords across all niches</p>
+      </div>
+      <div class="stat-card">
+        <p style="color:#f97316; font-size:42px; font-weight:800; margin:0 0 6px 0;">5.2x</p>
+        <p style="color:#ffffff; font-size:15px; font-weight:700; margin:0 0 6px 0;">Average ROI on SEO Spend</p>
+        <p style="color:#93a8c9; font-size:13px; margin:0;">Revenue generated versus monthly retainer cost</p>
+      </div>
+      <div class="stat-card">
+        <p style="color:#f97316; font-size:42px; font-weight:800; margin:0 0 6px 0;">98%</p>
+        <p style="color:#ffffff; font-size:15px; font-weight:700; margin:0 0 6px 0;">Client Retention Rate</p>
+        <p style="color:#93a8c9; font-size:13px; margin:0;">Clients stay because results speak louder than contracts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     7. FAQ
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="badge">FAQs</span>
+      <h2 class="sec-title">Common SEO <span style="color:#1a73e8;">Questions Answered</span></h2>
+    </div>
+
+    <div style="max-width:760px; margin:0 auto;">
+
+      <div class="faq-item">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:8px;">How long does SEO take to show results?</h4>
+            <p style="color:#6b7a99; font-size:14px; line-height:1.75; margin:0;">Most websites begin seeing measurable ranking improvements within 3–6 months. Competitive niches may take 6–12 months. SEO is a long-term investment — but the compounding returns far outweigh paid ads over time.</p>
+          </div>
+          <span style="color:#f97316; font-size:20px; flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:8px;">What is the difference between On-Page and Off-Page SEO?</h4>
+            <p style="color:#6b7a99; font-size:14px; line-height:1.75; margin:0;">On-Page SEO covers everything on your website — content, titles, speed, structure. Off-Page SEO refers to external signals like backlinks, brand mentions, and social authority that tell Google your site is trusted.</p>
+          </div>
+          <span style="color:#1a73e8; font-size:20px; flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Do you guarantee first-page rankings?</h4>
+            <p style="color:#6b7a99; font-size:14px; line-height:1.75; margin:0;">No ethical SEO agency can guarantee specific rankings — Google's algorithm is outside anyone's control. What we guarantee is a proven process, transparent reporting, and a track record of delivering top-3 results for our clients.</p>
+          </div></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:8px;">Is SEO worth it for small businesses?</h4>
+            <p style="color:#6b7a99; font-size:14px; line-height:1.75; margin:0;">Absolutely. Local SEO especially levels the playing field — a well-optimised small business can outrank large competitors in local search results, driving high-quality leads without a massive ad budget.</p>
+          </div>
+          <span style="color:#1a73e8; font-size:20px; flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#0a1f44; margin-bottom:8px;">How do you measure SEO success?</h4>
+            <p style="color:#6b7a99; font-size:14px; line-height:1.75; margin:0;">We track keyword rankings, organic traffic volume, click-through rates, conversion rates, and ultimately revenue attributed to organic search. You'll receive a clear monthly report covering all of these.</p>
+          </div>
+          <span style="color:#f97316; font-size:20px; flex-shrink:0;"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     8. CTA BANNER
+════════════════════════════════════════════ -->
+<section style="padding:0 24px 100px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="cta-banner">
+      <span class="badge badge-orange" style="margin-bottom:20px;">Free SEO Audit</span>
+      <h2 style="font-size:clamp(24px,3.5vw,42px); font-weight:800; color:#ffffff; line-height:1.15; letter-spacing:-0.5px; margin:0 auto 14px auto; max-width:580px;">
+        Find Out Why Your Website Isn't Ranking — For Free
+      </h2>
+      <p style="color:#bdd4f8; font-size:15px; line-height:1.75; max-width:480px; margin:0 auto 36px auto;">
+        Get a comprehensive SEO audit of your website — covering technical issues, keyword gaps, content opportunities, and competitor analysis. No cost, no commitment.
+      </p>
+      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+        <a href="#" style="display:inline-block; background:#f97316; color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:700; padding:16px 36px; border-radius:100px; text-decoration:none; box-shadow:0 10px 28px rgba(249,115,22,0.4);"> Claim My Free SEO Audit</a>
+        <a href="#" style="display:inline-block; background:transparent; color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; padding:15px 32px; border-radius:100px; text-decoration:none; border:1.5px solid rgba(255,255,255,0.3);">View SEO Pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating WhatsApp Button</title>
+
+<style>
+/* Floating WhatsApp Button */
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:float 2s ease-in-out infinite;
+}
+
+.whatsapp-float img{
+    width:100%;
+    height:100%;
+    transition:0.3s;
+}
+
+.whatsapp-float:hover img{
+    transform:scale(1.1);
+}
+
+/* Chat Text */
+.whatsapp-text{
+    position:fixed;
+    right:95px;
+    bottom:35px;
+    background:#25D366;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:25px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    z-index:9999;
+    white-space:nowrap;
+}
+
+/* Floating Animation */
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .whatsapp-float{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+    }
+
+    .whatsapp-text{
+        right:80px;
+        bottom:28px;
+        font-size:12px;
+        padding:7px 12px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/918778820899?text=Hello%20Growfic,%20I%20need%20more%20information."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- Chat Text -->
+ <!-- Faq questions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary:    #0a1628;
+    --secondary:  #f26522;
+    --accent:     #00d4a7;
+    --white:      #ffffff;
+    --light-bg:   #f0f4f8;
+    --text-dark:  #0a1628;
+    --text-light: #6b7280;
+    --border:     #e5e7eb;
+    --shadow:     0 4px 20px rgba(10,22,40,0.1);
+    --shadow-lg:  0 20px 60px rgba(10,22,40,0.15);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+/* ── Section wrapper ─────────────────────────────────────────── */
+.faq-section {
+    padding: 88px 5%;
+    background: var(--light-bg);
+}
+
+.faq-section.alt { background: var(--white); }
+
+/* ── Section header ──────────────────────────────────────────── */
+.faq-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(242,101,34,0.1);
+    color: var(--secondary);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.faq-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.faq-header h2 span { color: var(--secondary); }
+
+.faq-header p {
+    color: var(--text-light);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+/* ── FAQ accordion list ──────────────────────────────────────── */
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ── Single FAQ item ─────────────────────────────────────────── */
+.faq-item {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(242,101,34,0.25);
+}
+
+.faq-item.open {
+    border-color: var(--secondary);
+    box-shadow: 0 6px 28px rgba(242,101,34,0.12);
+}
+
+/* ── Question button ─────────────────────────────────────────── */
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.faq-question:hover { background: rgba(242,101,34,0.04); }
+.faq-item.open .faq-question { background: rgba(242,101,34,0.05); }
+
+.faq-q-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.faq-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--secondary);
+    background: rgba(242,101,34,0.1);
+    border-radius: 6px;
+    padding: 3px 8px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.faq-q-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.4;
+}
+
+.faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(242,101,34,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s, transform 0.35s ease;
+    color: var(--secondary);
+    font-size: 0.85rem;
+}
+
+.faq-item.open .faq-icon {
+    background: var(--secondary);
+    color: var(--white);
+    transform: rotate(45deg);
+}
+
+/* ── Answer panel ────────────────────────────────────────────── */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-inner {
+    padding: 0 28px 24px 62px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+}
+
+.faq-answer-inner strong { color: var(--primary); }
+.faq-answer-inner a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+.faq-answer-inner a:hover { text-decoration: underline; }
+
+/* ── Bottom CTA strip ────────────────────────────────────────── */
+.faq-cta {
+    max-width: 820px;
+    margin: 44px auto 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #152540 100%);
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 3px solid var(--secondary);
+}
+
+.faq-cta-text h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+}
+
+.faq-cta-text p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+}
+
+.faq-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--secondary);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(242,101,34,0.35);
+}
+
+.faq-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(242,101,34,0.45);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .faq-section { padding: 60px 5%; }
+    .faq-header h2 { font-size: 1.75rem; }
+    .faq-question { padding: 18px 20px; }
+    .faq-answer-inner { padding: 0 20px 20px 20px; padding-top: 16px; }
+    .faq-cta { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+    .faq-q-text { font-size: 0.92rem; }
+}
+
+@media (max-width: 480px) {
+    .faq-header h2 { font-size: 1.5rem; }
+    .faq-num { display: none; }
+}
+</style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEO FAQ | Growfic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="faq-shared.css"/>
+</head>
+<body>
+
+<section class="faq-section">
+  <div class="faq-header">
+    <div class="section-tag"><i class="fas fa-magnifying-glass-chart"></i> SEO FAQ</div>
+    <h2>Search Engine Optimisation <span>FAQs</span></h2>
+    <p>Everything you need to know about how SEO works, what results to expect, and how Growfic delivers sustainable organic growth.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q01</span>
+          <span class="faq-q-text">What is SEO and why does my business need it?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">SEO (Search Engine Optimisation) is the process of improving your website so it ranks higher on Google when people search for your products or services. <strong>Without SEO, your website is invisible to 90%+ of buyers</strong> who never scroll past page one. Businesses without SEO lose leads daily to competitors who rank above them.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q02</span>
+          <span class="faq-q-text">How long does it take to see SEO results?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">SEO is a long-term investment. You can expect to see early movement in rankings within <strong>3–4 months</strong>, meaningful traffic growth by <strong>month 5–6</strong>, and strong ROI by month 8–12. The timeline depends on your industry competition, current domain authority, and how aggressively we execute the strategy.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q03</span>
+          <span class="faq-q-text">What happens if I don't do SEO?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Without SEO your website collects dust. You'll rely entirely on paid ads for traffic (which stops the moment you stop paying), miss organic buyers actively searching for your services, and hand market share to competitors who rank above you. <strong>Organic traffic is the most cost-effective, long-term traffic source available.</strong></div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q04</span>
+          <span class="faq-q-text">What does Growfic's SEO service include?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Our SEO service covers: <strong>technical SEO audit</strong>, keyword research & mapping, on-page optimisation (meta tags, headings, content), link building, local SEO signals, content strategy, and monthly performance reports with full transparency.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q05</span>
+          <span class="faq-q-text">Will my rankings disappear if I stop SEO?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      
+  </div></div></section>
+
+ 
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // close all in same list
+      btn.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+ <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #f26522;
+            --accent: #00d4a7;
+            --white: #ffffff;
+            --light-bg: #f0f4f8;
+            --text-dark: #0a1628;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --card-bg: #111d2e;
+            --shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 8px 5%;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar-left span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a:hover { color: var(--secondary); }
+
+        .top-bar .divider {
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i { font-size: 0.72rem; transition: transform 0.3s; }
+        .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 16px;
+            padding: 14px;
+            min-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            font-size: 0.88rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--secondary);
+        }
+
+        .dropdown-menu .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .icon-seo { background: #e8f5e9; color: #2e7d32; }
+        .icon-ppc { background: #fff3e0; color: #ef6c00; }
+        .icon-local { background: #e3f2fd; color: #1565c0; }
+        .icon-content { background: #fce4ec; color: #c62828; }
+        .icon-video { background: #f3e5f5; color: #6a1b9a; }
+        .icon-smm { background: #e0f7fa; color: #00838f; }
+
+        .dropdown-menu .label { font-weight: 600; display: block; color: var(--text-dark); font-size: 0.88rem; }
+        .dropdown-menu .desc { font-size: 0.76rem; color: var(--text-light); font-weight: 400; }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #d9551a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(242, 101, 34, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background: #00b894;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 167, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5% 90px;
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 50%, #152238 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 167, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 101, 34, 0.15);
+            color: var(--secondary);
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin-bottom: 28px;
+            border: 1px solid rgba(242, 101, 34, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero h1 span { color: var(--secondary); }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 36px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 56px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--secondary);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Trusted By Section */
+        .trusted {
+            padding: 40px 5%;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .trusted p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.5;
+        }
+
+        .trusted-logos span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Section Styles */
+        .section { padding: 90px 5%; }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 101, 34, 0.1);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* Services Section */
+        .services { background: var(--white); }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover { gap: 14px; }
+
+        /* Features / Why Section */
+        .features {
+            background: var(--light-bg);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 18px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--white);
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--accent) 100%);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover::before { transform: scaleY(1); }
+        .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+
+        .team-card-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .team-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--white);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .team-info .role {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .team-card blockquote {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+            border-left: 3px solid var(--accent);
+            padding-left: 18px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%);
+            padding: 90px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-container h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-container p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 70px 5% 36px;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(180px, 1fr));
+            gap: 50px;
+            align-items: start;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-brand .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.72);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 420px;
+        }
+
+        .footer-brand .tagline {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .footer-brand .social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .footer-brand .social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-brand .social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 120px);
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 5%;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 6px; }
+        .mobile-menu a {
+            display: block;
+            padding: 14px 0;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .mobile-services { padding-left: 16px; }
+        .mobile-services a {
+            font-size: 0.9rem;
+            padding: 10px 0;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 2.8rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-container { grid-template-columns: 1fr; gap: 50px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu { top: 76px; height: calc(100vh - 76px); }
+            .hero { padding: 60px 5% 60px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-stats { gap: 28px; }
+            .stat-item h3 { font-size: 1.8rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 36px; }
+            .section { padding: 60px 5%; }
+            .section-header h2 { font-size: 2rem; }
+            .cta-container h2 { font-size: 2rem; }
+        }
+    </style>
+         <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="file_000000009ba8720c9dc499870e45e798.png" alt="logo">
+                </a>                </a>
+                <p>Your trusted partner for data-driven digital marketing solutions. We help businesses grow their online presence and drive measurable results.</p>
+                <p class="tagline"><span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Leads</span> | <span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Sales</span> | <span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Growth</span></p>
+                <div class="social" style="margin-top: 16px;">
+                    <a href="https://www.facebook.com/Growfic.in/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/growfic.in"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://wa.me/918778820899" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="footer-column"> 
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="seo.html">SEO Optimization</a></li>
+                    <li><a href="ppc.html">Google & Meta Ads</a></li>
+                    <li><a href="local.html">Google Business Profile</a></li>
+                    <li><a href="content.html">Content Strategy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="video.html">Video Production</a></li>
+                    <li><a href="smm.html">Social Media</a></li>
+                    <li><a href="#features">Why Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:grow@growfic.in">grow@growfic.in</a></li>
+                    <li><a href="tel:+918778820899">+91 87788 20899</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> Growfic Marketing Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</html>

@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Business Profile Optimization | Growfic</title>
+        <link rel="icon" type="image/x-icon" href="growficlogo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #f26522;
+            --accent: #00d4a7;
+            --white: #ffffff;
+            --light-bg: #f0f4f8;
+            --text-dark: #0a1628;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 8px 5%;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar-left { display: flex; gap: 20px; align-items: center; }
+        .top-bar-left span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-right { display: flex; gap: 20px; align-items: center; }
+        .top-bar a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
+        .top-bar a:hover { color: var(--secondary); }
+        .top-bar .divider { color: rgba(255,255,255,0.3); }
+
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 40px; width: auto; }
+
+        .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+
+        .dropdown { position: relative; }
+        .dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+        .dropdown-toggle i { font-size: 0.72rem; transition: transform 0.3s; }
+        .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 14px;
+            padding: 14px;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu a { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; transition: all 0.3s; font-size: 0.88rem; }
+        .dropdown-menu a:hover { background: var(--light-bg); color: var(--secondary); }
+
+        .dropdown-menu .icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+        .icon-seo { background: #e8f5e9; color: #2e7d32; }
+        .icon-ppc { background: #fff3e0; color: #ef6c00; }
+        .icon-local { background: #e3f2fd; color: #1565c0; }
+        .icon-content { background: #fce4ec; color: #c62828; }
+        .icon-video { background: #f3e5f5; color: #6a1b9a; }
+        .icon-smm { background: #e0f7fa; color: #00838f; }
+        .dropdown-menu .label { font-weight: 600; display: block; color: var(--text-dark); font-size: 0.85rem; }
+        .dropdown-menu .desc { font-size: 0.74rem; color: var(--text-light); font-weight: 400; }
+
+        .btn { padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; border: none; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--secondary); color: var(--white); }
+        .btn-primary:hover { background: #d9551a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(242, 101, 34, 0.35); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.4rem; color: var(--primary); cursor: pointer; }
+
+        .service-hero {
+            padding: 80px 5% 70px;
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .service-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 52px;
+        }
+
+        .breadcrumb { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; font-size: 0.88rem; }
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--secondary); }
+        .breadcrumb span { color: var(--secondary); font-weight: 600; }
+
+        .service-hero h1 { font-size: 2.8rem; font-weight: 900; line-height: 1.15; color: var(--white); margin-bottom: 16px; }
+        .service-hero h1 span { color: var(--secondary); }
+        .service-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.8; max-width: 600px; }
+
+        /* ══ GBP Hero Visual ══════════════════════════════════════════ */
+        .gbp-hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 430px;
+        }
+
+        .gbp-glow {
+            position: absolute;
+            width: 360px; height: 360px;
+            background: radial-gradient(circle, rgba(66,133,244,0.15) 0%, rgba(242,101,34,0.1) 55%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* ── Map card ── */
+        .gbp-map-card {
+            position: relative;
+            z-index: 2;
+            width: 260px;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 28px 64px rgba(0,0,0,0.42), 0 0 0 1px rgba(255,255,255,0.06);
+        }
+
+        /* Map tile */
+        .gbp-map-tile {
+            height: 130px;
+            background:
+                linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%),
+                repeating-linear-gradient(0deg, #e5eaf0 0px, #e5eaf0 1px, transparent 1px, transparent 28px),
+                repeating-linear-gradient(90deg, #e5eaf0 0px, #e5eaf0 1px, transparent 1px, transparent 28px),
+                #eef2f7;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Road lines on map */
+        .gbp-map-tile::before {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            background:
+                linear-gradient(90deg, transparent 30%, #d1dae6 30%, #d1dae6 32%, transparent 32%),
+                linear-gradient(0deg,   transparent 45%, #d1dae6 45%, #d1dae6 47%, transparent 47%),
+                linear-gradient(90deg, transparent 65%, #d1dae6 65%, #d1dae6 67%, transparent 67%);
+        }
+
+        /* Map pin */
+        .gbp-pin {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: gbpBounce 2.4s ease-in-out infinite;
+        }
+        .gbp-pin-head {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, #4285F4, #1a56db);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(66,133,244,0.5);
+        }
+        .gbp-pin-head i {
+            transform: rotate(45deg);
+            color: #fff;
+            font-size: 0.85rem;
+        }
+        .gbp-pin-shadow {
+            width: 12px; height: 5px;
+            background: rgba(0,0,0,0.18);
+            border-radius: 50%;
+            margin-top: 3px;
+            filter: blur(2px);
+        }
+
+        @keyframes gbpBounce {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-8px); }
+        }
+
+        /* GBP profile panel */
+        .gbp-profile {
+            padding: 14px 14px 16px;
+        }
+
+        .gbp-biz-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .gbp-logo {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #4285F4 0%, #1a56db 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            color: #fff;
+            font-weight: 900;
+            flex-shrink: 0;
+            letter-spacing: -0.5px;
+        }
+        .gbp-biz-info {}
+        .gbp-biz-name { font-size: 0.82rem; font-weight: 800; color: #0a1628; line-height: 1.2; }
+        .gbp-biz-cat  { font-size: 0.62rem; color: #64748b; font-weight: 500; }
+
+        /* Star rating row */
+        .gbp-rating-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .gbp-score { font-size: 0.88rem; font-weight: 800; color: #0a1628; }
+        .gbp-stars { display: flex; gap: 2px; }
+        .gbp-stars i { color: #FBBC04; font-size: 0.65rem; }
+        .gbp-review-count { font-size: 0.62rem; color: #64748b; }
+
+        /* Info rows */
+        .gbp-info-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.62rem;
+            color: #475569;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .gbp-info-row i { color: #4285F4; width: 11px; font-size: 0.65rem; }
+        .gbp-info-row .gbp-open { color: #16a34a; font-weight: 700; }
+
+        /* CTA buttons */
+        .gbp-cta-row {
+            display: flex;
+            gap: 7px;
+            margin-top: 12px;
+        }
+        .gbp-btn {
+            flex: 1;
+            text-align: center;
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 7px 5px;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+        }
+        .gbp-btn.primary { background: #4285F4; color: #fff; }
+        .gbp-btn.outline { background: #f0f5ff; color: #4285F4; border: 1px solid #c7d9fb; }
+
+        /* ── Floating stat cards ── */
+        .gbp-card {
+            position: absolute;
+            z-index: 3;
+            background: #fff;
+            border-radius: 14px;
+            padding: 11px 15px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        .gbp-card-icon {
+            width: 34px; height: 34px;
+            border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .gbp-card .gbp-c-num { font-weight: 800; font-size: 0.9rem; color: #0a1628; line-height: 1.2; }
+        .gbp-card .gbp-c-lbl { font-size: 0.64rem; color: #64748b; font-weight: 600; }
+
+        .gbp-card-views {
+            top: 4%;
+            left: -10%;
+            animation: gbpFloat 4s ease-in-out infinite;
+        }
+        .gbp-card-views .gbp-card-icon { background: linear-gradient(135deg, #4285F4, #6ba3f7); }
+
+        .gbp-card-calls {
+            bottom: 10%;
+            right: -12%;
+            animation: gbpFloat 4s ease-in-out infinite 1.5s;
+        }
+        .gbp-card-calls .gbp-card-icon { background: linear-gradient(135deg, #22c55e, #4ade80); }
+
+        .gbp-card-rank {
+            top: 46%;
+            right: -13%;
+            animation: gbpFloat 4s ease-in-out infinite 2.6s;
+        }
+        .gbp-card-rank .gbp-card-icon { background: linear-gradient(135deg, #f97316, #fbb97b); }
+
+        @keyframes gbpFloat {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
+        }
+
+        .section { padding: 80px 5%; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 56px; }
+        .section-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(242, 101, 34, 0.1); color: var(--secondary); padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 0.78rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+        .section-header p { color: var(--text-light); font-size: 1.02rem; }
+
+        /* Overview / Why It Matters */
+        .overview { background: var(--light-bg); }
+        .overview-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+        .overview-text h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+        .overview-text p { color: var(--text-light); font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+        .overview-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+        .overview-stats .stat h3 { font-size: 1.7rem; font-weight: 900; color: var(--secondary); }
+        .overview-stats .stat p { font-size: 0.76rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.4px; margin: 0; }
+
+        .overview-card { background: var(--white); border-radius: 22px; padding: 36px; box-shadow: var(--shadow-lg); }
+        .overview-card ul { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .overview-card li { display: flex; align-items: flex-start; gap: 14px; }
+        .overview-card li .icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; background: rgba(0, 212, 167, 0.12); color: var(--accent); }
+        .overview-card li div b { display: block; color: var(--primary); font-size: 0.96rem; margin-bottom: 2px; }
+        .overview-card li div span { color: var(--text-light); font-size: 0.85rem; }
+
+        /* Services grid */
+        .local-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .local-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .local-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--secondary) 0%, var(--accent) 100%); transform: scaleY(0); transition: transform 0.4s ease; }
+        .local-card:hover::before { transform: scaleY(1); }
+        .local-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+        .local-card .icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px; }
+        .local-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .local-card p { color: var(--text-light); font-size: 0.92rem; line-height: 1.7; }
+        .local-card ul { list-style: none; margin-top: 16px; }
+        .local-card ul li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--text-light); font-size: 0.88rem; }
+        .local-card ul li i { color: var(--accent); font-size: 0.8rem; }
+
+        /* Why Choose Us */
+        .why-local { background: var(--white); }
+        .why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .why-card { background: var(--light-bg); border-radius: 18px; padding: 30px 26px; text-align: left; transition: all 0.3s; }
+        .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .why-card .icon { width: 48px; height: 48px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 16px; background: rgba(242, 101, 34, 0.1); color: var(--secondary); }
+        .why-card h4 { font-size: 1.02rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .why-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.65; }
+
+        /* Local Ranking Factors */
+        .ranking-factors { background: var(--light-bg); }
+        .factors-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .factor-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 28px 24px; transition: all 0.3s; }
+        .factor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+        .factor-card .num-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: var(--white); font-weight: 800; font-size: 0.85rem; margin-bottom: 14px; }
+        .factor-card h4 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .factor-card p { color: var(--text-light); font-size: 0.86rem; line-height: 1.6; }
+
+        /* Process */
+        .process { background: var(--light-bg); }
+        .process-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .process-step { text-align: center; }
+        .process-step .num { width: 52px; height: 52px; border-radius: 50%; background: var(--primary); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; margin: 0 auto 16px; }
+        .process-step h4 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .process-step p { color: var(--text-light); font-size: 0.85rem; line-height: 1.6; }
+
+        /* Results strip */
+        .results-strip { background: var(--white); }
+        .results-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .results-grid .result-item h3 { font-size: 2.1rem; font-weight: 900; color: var(--primary); }
+        .results-grid .result-item h3 span { color: var(--secondary); }
+        .results-grid .result-item p { color: var(--text-light); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.4px; margin: 0; }
+
+        .cta-section { background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%); padding: 70px 5%; text-align: center; }
+        .cta-section h2 { font-size: 2.2rem; font-weight: 800; color: var(--white); margin-bottom: 14px; }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.02rem; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .footer { background: var(--primary); color: var(--white); padding: 60px 5% 32px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
+        .footer-brand .logo { margin-bottom: 14px; }
+        .footer-brand .logo img { height: 36px; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px; }
+        .footer-brand .tagline { color: var(--secondary); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .social { display: flex; gap: 12px; }
+        .social a { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
+        .social a:hover { background: var(--secondary); transform: translateY(-3px); }
+        .footer-column h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+        .footer-column a:hover { color: var(--secondary); }
+        .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+        .mobile-menu { display: none; position: fixed; top: 112px; left: 0; width: 100%; height: calc(100vh - 112px); background: var(--white); z-index: 999; padding: 32px 5%; overflow-y: auto; }
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 6px; }
+        .mobile-menu a { display: block; padding: 14px 0; text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); }
+        .mobile-services { padding-left: 16px; }
+        .mobile-services a { font-size: 0.9rem; padding: 10px 0; color: var(--text-light); }
+
+        @media (max-width: 1024px) {
+            .service-hero h1 { font-size: 2.3rem; }
+            .local-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .overview-grid { grid-template-columns: 1fr; gap: 36px; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .factors-grid { grid-template-columns: 1fr; }
+            /* Stack hero on tablet */
+            .service-hero-container { grid-template-columns: 1fr; }
+            .gbp-hero-visual { order: -1; min-height: 320px; margin-bottom: 8px; }
+            .service-hero p { max-width: none; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu { top: 72px; height: calc(100vh - 72px); }
+            .service-hero { padding: 50px 5% 50px; }
+            .service-hero h1 { font-size: 1.9rem; }
+            .footer-container { grid-template-columns: 1fr; gap: 36px; }
+            .section { padding: 60px 5%; }
+            .section-header h2 { font-size: 1.9rem; }
+            .overview-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .process-grid { grid-template-columns: 1fr; gap: 28px; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+            /* Shrink visual on mobile */
+            .gbp-hero-visual { min-height: 270px; }
+            .gbp-map-card { width: 210px; }
+            .gbp-card { padding: 8px 11px; }
+            .gbp-card-icon { width: 28px; height: 28px; font-size: 0.78rem; }
+            .gbp-card .gbp-c-num { font-size: 0.8rem; }
+            .gbp-card .gbp-c-lbl { font-size: 0.6rem; }
+            .gbp-card-views { left: 0; top: 2%; }
+            .gbp-card-calls { right: 0; bottom: 6%; }
+            .gbp-card-rank { display: none; }
+        }
+        @media (max-width: 420px) {
+            .gbp-map-card { width: 175px; }
+            .gbp-hero-visual { min-height: 230px; }
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growfic | Digital Marketing Agency - More Leads, More Sales, More Growth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #f26522;
+            --accent: #00d4a7;
+            --white: #ffffff;
+            --light-bg: #f0f4f8;
+            --text-dark: #0a1628;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --card-bg: #111d2e;
+            --shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 8px 5%;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar-left span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a:hover { color: var(--secondary); }
+
+        .top-bar .divider {
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i { font-size: 0.72rem; transition: transform 0.3s; }
+        .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 16px;
+            padding: 14px;
+            min-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            font-size: 0.88rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--secondary);
+        }
+
+        .dropdown-menu .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .icon-seo { background: #e8f5e9; color: #2e7d32; }
+        .icon-ppc { background: #fff3e0; color: #ef6c00; }
+        .icon-local { background: #e3f2fd; color: #1565c0; }
+        .icon-content { background: #fce4ec; color: #c62828; }
+        .icon-video { background: #f3e5f5; color: #6a1b9a; }
+        .icon-smm { background: #e0f7fa; color: #00838f; }
+
+        .dropdown-menu .label { font-weight: 600; display: block; color: var(--text-dark); font-size: 0.88rem; }
+        .dropdown-menu .desc { font-size: 0.76rem; color: var(--text-light); font-weight: 400; }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #d9551a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(242, 101, 34, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background: #00b894;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 167, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5% 90px;
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 50%, #152238 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 167, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 101, 34, 0.15);
+            color: var(--secondary);
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin-bottom: 28px;
+            border: 1px solid rgba(242, 101, 34, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero h1 span { color: var(--secondary); }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 36px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 56px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--secondary);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Trusted By Section */
+        .trusted {
+            padding: 40px 5%;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .trusted p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.5;
+        }
+
+        .trusted-logos span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Section Styles */
+        .section { padding: 90px 5%; }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 101, 34, 0.1);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* Services Section */
+        .services { background: var(--white); }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover { gap: 14px; }
+
+        /* Features / Why Section */
+        .features {
+            background: var(--light-bg);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 18px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--white);
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--accent) 100%);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover::before { transform: scaleY(1); }
+        .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+
+        .team-card-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .team-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--white);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .team-info .role {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .team-card blockquote {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+            border-left: 3px solid var(--accent);
+            padding-left: 18px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(145deg, #0a1628 0%, #0f1f35 100%);
+            padding: 90px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-container h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-container p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 70px 5% 36px;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(180px, 1fr));
+            gap: 50px;
+            align-items: start;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-brand .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.72);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 420px;
+        }
+
+        .footer-brand .tagline {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .footer-brand .social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .footer-brand .social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-brand .social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 120px);
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 5%;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 6px; }
+        .mobile-menu a {
+            display: block;
+            padding: 14px 0;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .mobile-services { padding-left: 16px; }
+        .mobile-services a {
+            font-size: 0.9rem;
+            padding: 10px 0;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 2.8rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-container { grid-template-columns: 1fr; gap: 50px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu { top: 76px; height: calc(100vh - 76px); }
+            .hero { padding: 60px 5% 60px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-stats { gap: 28px; }
+            .stat-item h3 { font-size: 1.8rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 36px; }
+            .section { padding: 60px 5%; }
+            .section-header h2 { font-size: 2rem; }
+            .cta-container h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Bar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Top bar: hidden on mobile, visible on laptop/desktop only */
+    .top-bar {
+      display: none; /* hidden by default (mobile-first) */
+      background-color: #0f1b2d;
+      width: 100%;
+      height: 40px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    /* Show only on large screens (≥1024px) */
+    @media (min-width: 1024px) {
+      .top-bar {
+        display: flex;
+      }
+    }
+
+    /* Left section — tagline */
+    .top-bar__left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .top-bar__left .segment {
+      display: flex;
+      align-items: center;
+    }
+
+    .top-bar__left .segment + .segment::before {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.25);
+      margin: 0 16px;
+    }
+
+    .top-bar__left .word-more {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .top-bar__left .word-leads  { color: #f97316; font-weight: 700; }
+    .top-bar__left .word-sales  { color: #f97316; font-weight: 700; }
+    .top-bar__left .word-growth { color: #f97316; font-weight: 700; }
+
+    /* Right section — contact + icons */
+    .top-bar__right {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .top-bar__right .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #c8d6e5;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .top-bar__right .contact-item:hover {
+      color: #ffffff;
+    }
+
+    .top-bar__right .contact-item svg {
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .top-bar__right .divider {
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 18px;
+    }
+
+    .top-bar__right .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .top-bar__right .social-icons a {
+      color: #c8d6e5;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .top-bar__right .social-icons a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+
+    <!-- Left: tagline -->
+    <div class="top-bar__left">
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-leads">Leads</span>
+      </div>
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-sales">Sales</span>
+      </div>
+      <div class="segment">
+        <span class="word-more">More&nbsp;</span><span class="word-growth">Growth</span>
+      </div>
+    </div>
+
+    <!-- Right: email, phone, social -->
+    <div class="top-bar__right">
+
+      <!-- Email -->
+      <a href="mailto:grow@growfic.in" class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+        grow@growfic.in
+      </a>
+
+      <div class="divider"></div>
+
+      <!-- Phone -->
+      <a href="tel:+918778820899" class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +91 87788 20899
+      </a>
+
+      <div class="divider"></div>
+
+      <!-- Social icons -->
+      <div class="social-icons">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/growfic.in/" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/Growfic.in/" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+    <!-- Navigation -->
+   <nav class="navbar">
+        <div class="nav-container">
+         <div class="logo"><img src="growficlogo.png" alt="Growficlogo"></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <span class="dropdown-toggle">
+                        <a href="#services">Services</a>
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <ul class="dropdown-menu">
+                        <li><a href="seo.html"><div><span class="label">Search Engine Optimization</span><span class="desc">Rank higher on Google</span></div></a></li>
+                        <li><a href="ppc.html"><div><span class="label">Google & Meta Ads</span><span class="desc">Paid advertising campaigns</span></div></a></li>
+                        <li><a href="local.html"><div><span class="label">Google Business Profile</span><span class="desc">Local search visibility</span></div></a></li>
+                        <li><a href="content.html"><div><span class="label">Content Strategy</span><span class="desc">Engaging content creation</span></div></a></li>
+                        <li><a href="video.html"><div><span class="label">Video Production</span><span class="desc">Professional video editing</span></div></a></li>
+                        <li><a href="smm.html"><div><span class="label">Social Media Management</span><span class="desc">Grow your social presence</span></div></a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="clients.html">Client & strategy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary">Free Audit</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li class="mobile-services"><a href="seo.html"> Search Engine Optimization</a></li>
+            <li class="mobile-services"><a href="ppc.html"> Google & Meta Ads</a></li>
+            <li class="mobile-services"><a href="local.html"> Google Business Profile</a></li>
+            <li class="mobile-services"><a href="content.html"> Content Strategy</a></li>
+            <li class="mobile-services"><a href="video.html"> Video Production</a></li>
+            <li class="mobile-services"><a href="smm.html"> Social Media Management</a></li>
+       
+            <li><a href="clients.html">Client & strategy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+<script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+    <section class="service-hero">
+        <div class="service-hero-container">
+
+            <!-- Left: existing content — unchanged -->
+            <div>
+                <div class="breadcrumb">
+            
+                </div>
+                <h1>Boost Your Local <span>Presence on Google</span></h1>
+                <p>A professionally optimized Google Business Profile helps your business appear in Google Search and Google Maps, making it easier for local customers to find, contact, and trust your brand &mdash; turning searches into real-world visits and calls.</p>
+                <a href="../index.html#contact" class="btn btn-primary"><i class="fas fa-calendar"></i> Get Free Profile Audit</a>
+            </div>
+
+            <!-- Right: Google Business Profile visual -->
+            <div class="gbp-hero-visual">
+                <div class="gbp-glow"></div>
+
+                <!-- GBP card -->
+                <div class="gbp-map-card">
+
+                    <!-- Mini map with pin -->
+                    <div class="gbp-map-tile">
+                        <div class="gbp-pin">
+                            <div class="gbp-pin-head">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="gbp-pin-shadow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Business profile info -->
+                    <div class="gbp-profile">
+                        <div class="gbp-biz-row">
+                            <div class="gbp-logo">G</div>
+                            <div class="gbp-biz-info">
+                                <div class="gbp-biz-name">Your Business Name</div>
+                                <div class="gbp-biz-cat">Digital Marketing Agency</div>
+                            </div>
+                        </div>
+
+                        <div class="gbp-rating-row">
+                            <span class="gbp-score">4.9</span>
+                            <div class="gbp-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="gbp-review-count">(148 reviews)</span>
+                        </div>
+
+                        <div class="gbp-info-row">
+                            <i class="fas fa-clock"></i>
+                            <span class="gbp-open">Open now</span>&nbsp;· Closes 7 PM
+                        </div>
+                        <div class="gbp-info-row">
+                            <i class="fas fa-phone"></i>
+                            +91 87788 20899
+                        </div>
+                        <div class="gbp-info-row">
+                            <i class="fas fa-location-dot"></i>
+                            Chennai, Tamil Nadu
+                        </div>
+
+                        <div class="gbp-cta-row">
+                            <button class="gbp-btn primary"><i class="fas fa-phone" style="font-size:0.55rem;margin-right:3px;"></i> Call</button>
+                            <button class="gbp-btn outline"><i class="fas fa-diamond-turn-right" style="font-size:0.55rem;margin-right:3px;"></i> Directions</button>
+                            <button class="gbp-btn outline"><i class="fas fa-globe" style="font-size:0.55rem;margin-right:3px;"></i> Website</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating stat cards -->
+                <div class="gbp-card gbp-card-views">
+                    <div class="gbp-card-icon"><i class="fas fa-eye"></i></div>
+                    <div>
+                        <div class="gbp-c-num">+215% Views</div>
+                        <div class="gbp-c-lbl">Profile Impressions</div>
+                    </div>
+                </div>
+
+                <div class="gbp-card gbp-card-calls">
+                    <div class="gbp-card-icon"><i class="fas fa-phone-volume"></i></div>
+                    <div>
+                        <div class="gbp-c-num">+3× Calls</div>
+                        <div class="gbp-c-lbl">Direct Enquiries</div>
+                    </div>
+                </div>
+
+                <div class="gbp-card gbp-card-rank">
+                    <div class="gbp-card-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <div>
+                        <div class="gbp-c-num">Top 3 Maps</div>
+                        <div class="gbp-c-lbl">Local Pack Ranking</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <span class="section-tag"><i class="fas fa-map-marker-alt"></i> GBP Services</span>
+            <h2>Complete Profile Management</h2>
+            <p>Every aspect of your Google Business Profile, optimized and kept active so local customers always find you first.</p>
+        </div>
+        <div class="local-grid">
+            <div class="local-card">
+                <div class="icon icon-local"><i class="fas fa-pen"></i></div>
+                <h3>Profile Setup &amp; Optimization</h3>
+                <p>Accurate business information, the right categories, and a fully completed, search-ready profile.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Business info &amp; category accuracy</li>
+                    <li><i class="fas fa-check"></i> Service area &amp; attributes setup</li>
+                    <li><i class="fas fa-check"></i> Keyword-optimized business description</li>
+                    <li><i class="fas fa-check"></i> Profile completeness audit</li>
+                </ul>
+            </div>
+            <div class="local-card">
+                <div class="icon icon-seo"><i class="fas fa-map"></i></div>
+                <h3>Google Maps SEO</h3>
+                <p>On-page and local ranking signals tuned to help you rank higher for "near me" and location-based searches.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Local keyword targeting</li>
+                    <li><i class="fas fa-check"></i> Map pack ranking strategy</li>
+                    <li><i class="fas fa-check"></i> Citation &amp; NAP consistency</li>
+                    <li><i class="fas fa-check"></i> Competitor benchmarking</li>
+                </ul>
+            </div>
+            <div class="local-card">
+                <div class="icon icon-ppc"><i class="fas fa-star"></i></div>
+                <h3>Review Management</h3>
+                <p>Strategies to generate more reviews and timely, professional responses to every one of them.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Review generation campaigns</li>
+                    <li><i class="fas fa-check"></i> Professional review responses</li>
+                    <li><i class="fas fa-check"></i> Reputation monitoring</li>
+                    <li><i class="fas fa-check"></i> Negative review resolution support</li>
+                </ul>
+            </div>
+            <div class="local-card">
+                <div class="icon icon-content"><i class="fas fa-camera"></i></div>
+                <h3>Photo, Video &amp; Posts</h3>
+                <p>High-quality visuals and regular business posts that keep your profile active, engaging, and credible.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Professional photo &amp; video uploads</li>
+                    <li><i class="fas fa-check"></i> Regular business posts &amp; offers</li>
+                    <li><i class="fas fa-check"></i> Performance tracking &amp; reporting</li>
+                    <li><i class="fas fa-check"></i> Ongoing profile support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section ranking-factors">
+        <div class="section-header">
+            <span class="section-tag"><i class="fas fa-layer-group"></i> What Google Looks At</span>
+            <h2>The Local Ranking Factors That Matter</h2>
+            <p>Google's local algorithm weighs three core signals when deciding who shows up first. We optimize for all three.</p>
+        </div>
+        <div class="factors-grid">
+            <div class="factor-card">
+                <div class="num-badge">1</div>
+                <h4>Relevance</h4>
+                <p>How well your profile information, categories, and description match what the searcher is looking for.</p>
+            </div>
+            <div class="factor-card">
+                <div class="num-badge">2</div>
+                <h4>Distance</h4>
+                <p>How close your business is to the searcher or the location they've specified in their search.</p>
+            </div>
+            <div class="factor-card">
+                <div class="num-badge">3</div>
+                <h4>Prominence</h4>
+                <p>How well-known and trusted your business is &mdash; driven by reviews, citations, and overall online presence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section overview">
+        <div class="overview-grid">
+            <div class="overview-text">
+                <span class="section-tag"><i class="fas fa-circle-info"></i> Why It Matters</span>
+                <h2>One Profile. Every Local Customer.</h2>
+                <p>Your Google Business Profile is often the first thing a nearby customer sees &mdash; before they ever reach your website. We optimize every element of it: information, categories, photos, posts, and reviews, so it works as a 24/7 storefront on Search and Maps.</p>
+                <p>With a strategic, data-led approach, we turn profile visibility into real outcomes &mdash; more calls, more direction requests, and more qualified leads, helping your business grow organically in local search.</p>
+                <div class="overview-stats">
+                    <div class="stat"><h3>500+</h3><p>Profiles Optimized</p></div>
+                    <div class="stat"><h3>95%</h3><p>Client Satisfaction</p></div>
+                    <div class="stat"><h3>3-5x</h3><p>Avg. Lead Increase</p></div>
+                </div>
+            </div>
+            <div class="overview-card">
+                <ul>
+                    <li><div class="icon"><i class="fas fa-location-dot"></i></div><div><b>Higher local visibility</b><span>Rank in the Google Maps "3-Pack" for the searches that matter most to you.</span></div></li>
+                    <li><div class="icon"><i class="fas fa-shield-heart"></i></div><div><b>More trust, faster</b><span>Strong reviews and accurate information turn searchers into customers.</span></div></li>
+                    <li><div class="icon"><i class="fas fa-bell"></i></div><div><b>Consistent presence</b><span>Regular posts and photo updates keep your profile active and relevant.</span></div></li>
+                    <li><div class="icon"><i class="fas fa-chart-simple"></i></div><div><b>Clear performance data</b><span>Track views, calls, and direction requests every month.</span></div></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process">
+        <div class="section-header">
+            <span class="section-tag"><i class="fas fa-route"></i> How We Work</span>
+            <h2>A Simple, Proven Process</h2>
+            <p>From audit to ongoing growth &mdash; here's how we take your profile from invisible to in-demand.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="num">1</div>
+                <h4>Audit</h4>
+                <p>We review your current profile, competitors, and local search rankings.</p>
+            </div>
+            <div class="process-step">
+                <div class="num">2</div>
+                <h4>Optimize</h4>
+                <p>We fix and enhance every field, category, and asset on your profile.</p>
+            </div>
+            <div class="process-step">
+                <div class="num">3</div>
+                <h4>Activate</h4>
+                <p>We launch posts, photos, and a review strategy to build momentum.</p>
+            </div>
+            <div class="process-step">
+                <div class="num">4</div>
+                <h4>Grow</h4>
+                <p>We track results monthly and refine the strategy for continued growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section why-local">
+        <div class="section-header">
+            <span class="section-tag"><i class="fas fa-star"></i> Why Choose Growfic</span>
+            <h2>Local Optimization Built Around Results</h2>
+            <p>What sets a strategic local SEO partner apart from someone who simply fills in your profile fields.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-magnifying-glass-location"></i></div>
+                <h4>Local Search Expertise</h4>
+                <p>We understand exactly how Google's local algorithm ranks businesses and optimize every signal it considers.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-comments-dollar"></i></div>
+                <h4>Review &amp; Reputation Strategy</h4>
+                <p>A proactive approach to generating reviews and responding to them &mdash; building trust before customers even call.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                <h4>Transparent Monthly Reporting</h4>
+                <p>Clear, jargon-free reports on views, calls, and direction requests &mdash; so you always know what's working.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section results-strip">
+        <div class="section-header">
+            <span class="section-tag"><i class="fas fa-chart-line"></i> The Outcome</span>
+            <h2>What a Strong Profile Drives</h2>
+        </div>
+        <div class="results-grid">
+            <div class="result-item"><h3><span>+</span>Calls</h3><p>More Phone Enquiries</p></div>
+            <div class="result-item"><h3><span>+</span>Visits</h3><p>More Website Traffic</p></div>
+            <div class="result-item"><h3><span>+</span>Directions</h3><p>More Store Visits</p></div>
+            <div class="result-item"><h3><span>+</span>Leads</h3><p>More Qualified Leads</p></div>
+        </div>
+    </section>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Business Profile FAQ | Growfic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="faq-shared.css"/>
+<style>
+    /* ── Shared FAQ CSS — used by all 6 FAQ pages ─────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary:    #0a1628;
+    --secondary:  #f26522;
+    --accent:     #00d4a7;
+    --white:      #ffffff;
+    --light-bg:   #f0f4f8;
+    --text-dark:  #0a1628;
+    --text-light: #6b7280;
+    --border:     #e5e7eb;
+    --shadow:     0 4px 20px rgba(10,22,40,0.1);
+    --shadow-lg:  0 20px 60px rgba(10,22,40,0.15);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+/* ── Section wrapper ─────────────────────────────────────────── */
+.faq-section {
+    padding: 88px 5%;
+    background: var(--light-bg);
+}
+
+.faq-section.alt { background: var(--white); }
+
+/* ── Section header ──────────────────────────────────────────── */
+.faq-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(242,101,34,0.1);
+    color: var(--secondary);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.faq-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.faq-header h2 span { color: var(--secondary); }
+
+.faq-header p {
+    color: var(--text-light);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+/* ── FAQ accordion list ──────────────────────────────────────── */
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ── Single FAQ item ─────────────────────────────────────────── */
+.faq-item {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(242,101,34,0.25);
+}
+
+.faq-item.open {
+    border-color: var(--secondary);
+    box-shadow: 0 6px 28px rgba(242,101,34,0.12);
+}
+
+/* ── Question button ─────────────────────────────────────────── */
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.faq-question:hover { background: rgba(242,101,34,0.04); }
+.faq-item.open .faq-question { background: rgba(242,101,34,0.05); }
+
+.faq-q-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.faq-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--secondary);
+    background: rgba(242,101,34,0.1);
+    border-radius: 6px;
+    padding: 3px 8px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.faq-q-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.4;
+}
+
+.faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(242,101,34,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s, transform 0.35s ease;
+    color: var(--secondary);
+    font-size: 0.85rem;
+}
+
+.faq-item.open .faq-icon {
+    background: var(--secondary);
+    color: var(--white);
+    transform: rotate(45deg);
+}
+
+/* ── Answer panel ────────────────────────────────────────────── */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-inner {
+    padding: 0 28px 24px 62px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+}
+
+.faq-answer-inner strong { color: var(--primary); }
+.faq-answer-inner a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+.faq-answer-inner a:hover { text-decoration: underline; }
+
+/* ── Bottom CTA strip ────────────────────────────────────────── */
+.faq-cta {
+    max-width: 820px;
+    margin: 44px auto 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #152540 100%);
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 3px solid var(--secondary);
+}
+
+.faq-cta-text h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+}
+
+.faq-cta-text p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+}
+
+.faq-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--secondary);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(242,101,34,0.35);
+}
+
+.faq-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(242,101,34,0.45);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .faq-section { padding: 60px 5%; }
+    .faq-header h2 { font-size: 1.75rem; }
+    .faq-question { padding: 18px 20px; }
+    .faq-answer-inner { padding: 0 20px 20px 20px; padding-top: 16px; }
+    .faq-cta { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+    .faq-q-text { font-size: 0.92rem; }
+}
+
+@media (max-width: 480px) {
+    .faq-header h2 { font-size: 1.5rem; }
+    .faq-num { display: none; }
+}
+    </style>
+</head>
+<body>
+
+<section class="faq-section">
+  <div class="faq-header">
+    <div class="section-tag"><i class="fas fa-map-location-dot"></i> Local SEO FAQ</div>
+    <h2>Google Business Profile <span>FAQs</span></h2>
+    <p>Answers to the most common questions about Google Business Profile and local search visibility — and why it matters for every local business.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q01</span>
+          <span class="faq-q-text">What is Google Business Profile and why do I need it?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Google Business Profile (GBP) is your free listing on Google Search and Maps. When someone searches '<em>digital marketing agency near me</em>' or '<em>best agency in Chennai</em>', <strong>the businesses that appear in the top 3 map results get 70%+ of all local clicks</strong>. Without an optimised GBP, your competitors take those leads.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q02</span>
+          <span class="faq-q-text">My business already has a Google listing — isn't that enough?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">An unclaimed or unoptimised listing is worse than none — it may show wrong hours, missing photos, no reviews, and outdated info. <strong>Optimised profiles get 5× more profile views and 7× more direction requests</strong> than incomplete ones. Claiming and optimising properly is what drives real local traffic.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q03</span>
+          <span class="faq-q-text">What does 'Local Pack' mean and how do I get into it?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Local Pack is the map block with 3 business listings that appears at the top of Google for local searches. Getting into it requires <strong>strong GBP signals</strong> (reviews, categories, NAP consistency), local SEO on your website, and authority signals. Growfic specialises in Local Pack optimisation.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q04</span>
+          <span class="faq-q-text">How important are Google Reviews?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Extremely. Reviews impact both <strong>ranking</strong> (more reviews = stronger local signal) and <strong>conversions</strong> (buyers trust businesses with 4.5+ star ratings). A business with 10 reviews loses customers to a competitor with 100. We help you build a consistent, authentic review generation system.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <div class="faq-q-left">
+          <span class="faq-num">Q05</span>
+          <span class="faq-q-text">What if someone leaves a negative review?</span>
+        </div>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Negative reviews aren't necessarily damaging if handled correctly. <strong>A professional, empathetic response to a negative review builds more trust than ignoring it</strong>. We help you craft responses and, where Google policies allow, flag fake or spam reviews for removal.</div>
+      </div>
+    </div>
+   
+  </div>
+
+</section>
+
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // close all in same list
+      btn.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
+
+    <section class="cta-section">
+        <h2>Ready to Own Your Local Search Results?</h2>
+        <p>Get a free, no-obligation audit of your Google Business Profile and see exactly where you're losing customers.</p>
+        <a href="../index.html#contact" class="btn btn-primary" style="font-size: 1rem; padding: 14px 36px;"><i class="fas fa-calendar-check"></i> Book Free Audit</a>
+    </section>
+
+      <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="file_000000009ba8720c9dc499870e45e798.png" alt="logo">
+                </a>                </a>
+                <p>Your trusted partner for data-driven digital marketing solutions. We help businesses grow their online presence and drive measurable results.</p>
+                <p class="tagline"><span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Leads</span> | <span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Sales</span> | <span style="color:#fff;font-weight:700;">More</span> <span style="color:#f05a28;font-weight:700;">Growth</span></p>
+                <div class="social" style="margin-top: 16px;">
+                    <a href="https://www.facebook.com/Growfic.in/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/growfic.in"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://wa.me/918778820899" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="footer-column"> 
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="seo.html">SEO Optimization</a></li>
+                    <li><a href="ppc.html">Google & Meta Ads</a></li>
+                    <li><a href="local.html">Google Business Profile</a></li>
+                    <li><a href="content.html">Content Strategy</a></li>
+                      <li><a href="video.html">Video Production</a></li>
+                    <li><a href="smm.html">Social Media</a></li>
+               </li>
+                    </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="about.html">Team</a></li>
+                    <li><a href="#features">Why Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                      <li><a href="clients.html">Client</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:grow@growfic.in">grow@growfic.in</a></li>
+                    <li><a href="tel:+918778820899">+91 87788 20899</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Growfic Marketing Agency. All rights reserved.</p>
+        </div>
+    </footer>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating WhatsApp Button</title>
+
+<style>
+/* Floating WhatsApp Button */
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:float 2s ease-in-out infinite;
+}
+
+.whatsapp-float img{
+    width:100%;
+    height:100%;
+    transition:0.3s;
+}
+
+.whatsapp-float:hover img{
+    transform:scale(1.1);
+}
+
+/* Chat Text */
+.whatsapp-text{
+    position:fixed;
+    right:95px;
+    bottom:35px;
+    background:#25D366;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:25px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    z-index:9999;
+    white-space:nowrap;
+}
+
+/* Floating Animation */
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .whatsapp-float{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+    }
+
+    .whatsapp-text{
+        right:80px;
+        bottom:28px;
+        font-size:12px;
+        padding:7px 12px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/918778820899?text=Hello%20Growfic,%20I%20need%20more%20information."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- Chat Text -->
+
+
+</body>
+</html>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

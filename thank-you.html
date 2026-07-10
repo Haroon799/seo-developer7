@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="growficlogo.ico">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f6f9;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    padding: 20px;
+  }
+
+  .thankyou-card {
+    max-width: 480px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid #eef0f3;
+  }
+
+  .check-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #34d399, #10b981);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    animation: pop 0.4s ease;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .check-circle svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    color: #1a1a2e;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0 0 28px;
+    color: #7a7f87;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+
+  .btn-home {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #f7941d, #f2650f);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 18px rgba(247, 148, 29, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-home:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(247, 148, 29, 0.45);
+  }
+
+  .sub-note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #9aa0a8;
+  }
+
+  @media (max-width: 480px) {
+    .thankyou-card { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="thankyou-card">
+  <div class="check-circle">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+
+  <h1>Thank You!</h1>
+  <p>Your request has been received. Our team will review your details and get back to you shortly with your free audit.</p>
+
+  <a href="index.html" class="btn-home">Back to Home</a>
+
+  <div class="sub-note">Meanwhile, feel free to check your inbox for updates.</div>
+</div>
+
+</body>
+</html>
